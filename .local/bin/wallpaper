@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+[ -d "$WALLPAPER_DIR" ] || exit 1
+
+# Список файлов только с именами
+FILES=$(find "$WALLPAPER_DIR" -type f \( \
+    -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \
+\) -printf "%f\n" | sort)
+
+# Выбор через wofi
+SELECTED=$(echo "$FILES" | wofi --dmenu --prompt "Select wallpaper")
+[ -z "$SELECTED" ] && exit 0
+
+WALLPAPER="$WALLPAPER_DIR/$SELECTED"
+
+# Применяем обои с плавной анимацией
+swww img "$WALLPAPER" \
+    --transition-type fade \
+    --transition-fps 60 \
+    --transition-duration 1.2 \
+    --zoom-level 1.05
+
+# Генерируем цвета через pywal
+wal -i "$WALLPAPER"
+
+./generate-mako
