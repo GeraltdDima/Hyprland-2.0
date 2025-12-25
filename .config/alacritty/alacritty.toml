@@ -1,0 +1,6 @@
+[font]
+size = 13.0
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Bold"

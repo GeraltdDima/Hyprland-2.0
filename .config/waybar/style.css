@@ -1,0 +1,87 @@
+@import "./colors-waybar.css";
+
+/* ───── Base ───── */
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  min-height: 0;
+  font-weight: 500;
+  outline: none;
+  box-shadow: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+window#waybar {
+  background: @background;
+  color: @foreground;
+  border-bottom: 1px solid @color8;
+}
+
+/* ───── Modules common ───── */
+#custom-arch,
+#workspaces button,
+#clock,
+#tray,
+#pulseaudio,
+#network,
+#battery
+#custom-filemanager
+{
+  padding: 0 10px;
+  margin: 4px 0;
+  border-radius: 6px;
+}
+
+/* ───── Arch button ───── */
+#custom-arch {
+  color: @color6;
+  font-size: 16px;
+}
+
+/* ───── Workspaces ───── */
+#workspaces button {
+  color: @color7;
+  background: transparent;
+}
+
+#workspaces button.active {
+  background: @color3;
+  color: @foreground;
+}
+
+/* ───── Clock ───── */
+#clock {
+  background: @color0;
+  color: @foreground;
+  font-weight: bold;
+}
+
+/* ───── Right side ───── */
+#pulseaudio {
+  color: @color6;
+}
+
+#network {
+  color: @color5;
+}
+
+#battery {
+	color: @color5;
+}
+
+#bluetooth {
+  color: @color6;
+  font-size: 15px;
+  padding: 0 2px;
+}
+
+#custom-filemanager {
+	color: @color6;
+	font-size: 15px;
+	padding: 0 8px;
+}
+
+#tray {
+  color: @foreground;
+}
+
